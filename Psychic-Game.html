@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>The Psychic Game</title>
+  </head>
+  <body>
+
+    <!-- When we start playing the game, our HTML will be placed into this div. -->
+    <h1>The Psychic Game</h1>
+
+    <div id="game">
+      <p>Press a random letter to start playing !!!</p>
+    </div>
+
+    <script type="text/javascript">
+
+      // Our array of possible computer choices.
+      var computerChoice = ["a", "b", "c", "d","e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
+      
+      // Variables for tracking our wins, losses and ties. They begin at 0.
+      
+      var wins = 0;
+      var losses = 0;
+      var guessesLeft = 0;
+
+      // When the user presses a key, it will run the following function...
+      document.onkeyup = function(event) {
+
+        // Determine which key was pressed
+        var userGuess = event.key;
+          console.log(userGuess)
+        var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];  
+          console.log(computerChoice)
+
+        if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") || (userGuess === "f") || (userGuess === "g") || (userGuess === "h") || (userGuess === "i") || (userGuess === "j") || (userGuess === "k") || (userGuess === "l") || (userGuess === "m") || (userGuess === "n") || (userGuess === "o") || (userGuess === "p") || (userGuess === "q") || (userGuess === "r") || (userGuess === "s") || (userGuess === "t") || (userGuess === "u") || (userGuess === "v") || (userGuess === "w") || (userGuess === "x") || (userGuess === "y") || (userGuess === "z")) {
+
+    
+
+         var html = "<p>Press any random letter to start playing!!!</p>" +
+          "<p>Wins: " + wins + "</p>" +
+          "<p>Losses: " + losses + "</p>" +
+          "<p>Guesses Left: " + guessesLeft + "</p>";
+
+          // Injecting the HTML we just created into our div and updating the game information on our page.
+          document.querySelector("#game").innerHTML = html;
+
+        }
+      };
+
+        //this runs when ctrl+r is hit. shouldn't this not run? for some reason its reading the ctrl part
+        //when I press ctrl+r.
+
+
+        // Sets the computerGuess variable equal to a random choice from the computerChoice array.
+      
+        // If the user presses "r" or "p" or "s", run the game logic.
+     
+
+    </script>
+
+  </body>
+</html>
