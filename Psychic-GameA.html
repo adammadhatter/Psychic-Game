@@ -10,14 +10,13 @@
     <h1>The Psychic Game</h1>
 
     <div id="game">
-      <p>Press a random letter to start playing !!!</p>
+      <p>Press any key to start playing !!!</p>
     </div>
 
     <script type="text/javascript">
 
       // Our array of possible computer choices.
-      var computerChoice = ["a", "b", "c", "d","e","f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    
+      var computerChoice = ["a", "b", "c"];    
       
       // Variables for tracking our wins, losses and ties. They begin at 0.
       
@@ -30,16 +29,45 @@
 
         // Determine which key was pressed
         var userGuess = event.key;
-          console.log(userGuess)
-        var userGuess = prompt("Care to take a guess?")
+          console.log(userGuess) 
+        var userGuess = prompt("Guess a letter I'm thinking of ... Choose From a, b, or c ...")
         var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];  
-          console.log(computerChoice)
+          console.log(computerGuess)
+       
 
-        if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") || (userGuess === "f") || (userGuess === "g") || (userGuess === "h") || (userGuess === "i") || (userGuess === "j") || (userGuess === "k") || (userGuess === "l") || (userGuess === "m") || (userGuess === "n") || (userGuess === "o") || (userGuess === "p") || (userGuess === "q") || (userGuess === "r") || (userGuess === "s") || (userGuess === "t") || (userGuess === "u") || (userGuess === "v") || (userGuess === "w") || (userGuess === "x") || (userGuess === "y") || (userGuess === "z")) {
+        if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c")) {
 
-    
 
-         var html = "<p>Press any random letter to start playing!!!</p>" +
+            if ((userGuess === "a") && (computerGuess === "a")) {
+            wins++;
+          }
+          else if ((userGuess === "a") && (computerGuess === "b")) {
+            losses++;
+          }
+          else if ((userGuess === "a") && (computerGuess === "c")) {
+            losses++;
+          }
+          else if ((userGuess === "b") && (computerGuess === "b")) {
+            wins++;
+          }
+          else if ((userGuess === "b") && (computerGuess === "a")) {
+            losses++;
+          }
+          else if ((userGuess === "b") && (computerGuess === "c")) {
+            losses++;
+          }
+          else if ((userGuess === "c") && (computerGuess === "c")) {
+            wins++;
+          }
+          else if ((userGuess === "c") && (computerGuess === "a")) {
+            losses++;
+          }
+          else if ((userGuess === "c") && (computerGuess === "b")) {
+            losses++;
+          }
+
+
+         var html = "<p>Press any key to start playing !!!</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" +
           "<p>Guesses Left: " + guessesLeft + "</p>";
@@ -49,6 +77,7 @@
 
         }
       };
+
 
         //this runs when ctrl+r is hit. shouldn't this not run? for some reason its reading the ctrl part
         //when I press ctrl+r.
